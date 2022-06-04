@@ -16,6 +16,38 @@ def marketpage():
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Placehoders
+@app.route('/login')
+def login():
+    return f"<h1>Login</h1>"
+
+@app.route('/register')
+def register():
+    return "<h1>Register</h1>"
+
+
+
 if __name__ == "__main__":
 
     app.run(debug=True,port=5500)
