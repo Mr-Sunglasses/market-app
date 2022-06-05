@@ -1,14 +1,12 @@
 from market import db
 
-class Users(db.Model):
 
+class Users(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     username = db.Column(db.String(length=20), nullable=False, unique=True)
     emailID = db.Column(db.String(length=250), nullable=False, unique=True)
     password_hash = db.Column(db.String(length=255), nullable=False)
-    budget = db.column(db.Integer(),nullable=False,default=1000)
-
-
+    budget = db.column(db.Integer(), nullable=False, default=1000)
 
 
 class Item(db.Model):
@@ -20,6 +18,3 @@ class Item(db.Model):
 
     def __repr__(self) -> str:
         return f'Items {self.id} {self.name}'
-
-
-
