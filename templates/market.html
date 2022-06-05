@@ -16,6 +16,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Barcode</th>
                 <th scope="col">Price</th>
+                <th scope="col">Description</th>
                 <th scope="col">Options</th>
             </tr>
         </thead>
@@ -23,10 +24,11 @@
             <!-- Your rows inside the table HERE: -->
             {% for item in items %}
                 <tr>
-                    <td> {{item.Id}}</td>
-                    <td> {{item.Name}} </td>
-                    <td> {{item.BarcodeId}} </td>
-                    <td> {{item.Price}} </td>
+                    <td> {{item.id}}</td>
+                    <td> {{item.name}} </td>
+                    <td> {{item.barcode}} </td>
+                    <td> {{item.price}} </td>
+                    <td> {{item.description}} </td>
                     <td>
                         <button class="btn btn-outline btn-info">More Information</button>
                         <button class="btn btn-outline btn-success">Purchase Item</button>
