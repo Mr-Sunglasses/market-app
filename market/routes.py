@@ -16,7 +16,7 @@ def marketpage():
     return render_template('market.html', items=ITEMS)
 
 
-# Placehoders
+# Placeholders
 @APP.route('/login')
 def login():
     return f"<h1>Login</h1>"
