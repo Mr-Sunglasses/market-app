@@ -20,7 +20,7 @@ import csv
 
 ITEMS = []
 
-with open('/Users/anton/Desktop/dev/flask-tutorials/data/csv_data/items.csv','r') as file:
+with open('data/csv_data/items.csv','r') as file:
 
     data = csv.DictReader(file)
 

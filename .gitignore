@@ -108,6 +108,7 @@ env/
 venv/
 portal/
 shopapp/
+myapp/
 ENV/
 env.bak/
 venv.bak/
