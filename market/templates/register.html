@@ -6,8 +6,43 @@
 
 {% block bodymain %}
 
-<h2>Register</h2>
+    <body class="text-center">
+        
+    
 
+    <div class="container">
+
+        <img class="mb-4" src="https://yt3.ggpht.com/ytc/AKedOLT0VVKk9ygwBeGsZy6BOtuKupISZrJjVjdLj4JPkA=s900-c-k-c0x00ffffff-no-rj" alt="KIET College" width="192" height="192">
+            
+        <h1 class="h3 mb-3 font-weight-normal">
+                Please Create your Account
+            </h1>
+
+            <br>
+
+        <form method="post" name="post" class="form-register" style="color: white;">
+        
+            {{ forms.username.label() }}
+            {{ forms.username(class="form-control", placeholder="User Name") }}
+
+            {{ forms.emailID.label() }}
+            {{ forms.emailID(class="form-control", placeholder="Email Address") }}
+
+            {{ forms.password1.label() }}
+            {{ forms.password1(class="form-control", placeholder="Password") }}
+
+            {{ forms.confirm_password1.label() }}
+            {{ forms.confirm_password1(class="form-control", placeholder="Confirm Password") }}
+
+            <br>
+            {{ forms.submit(class="btn btn-lg btn-block btn-primary") }}
+
+        
+        </form>
+        
+
+    </div>
+    </body>
 
 
 {% endblock %}

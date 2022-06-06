@@ -6,5 +6,5 @@ class RegistrationForm(FlaskForm):
     username = StringField(label="Username")
     emailID = StringField(label="Email")
     password1 = PasswordField(label="Password")
-    confpassword1 = PasswordField(label="Confirm password")
-    submit = SubmitField(label="Submit")
+    confirm_password1 = PasswordField(label="Confirm password")
+    submit = SubmitField(label="Create Account")
