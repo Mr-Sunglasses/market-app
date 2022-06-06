@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
-from market.SEACRETKEY import KEY
+from KEY import KEY
 
 APP = Flask(__name__)
 APP.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'
