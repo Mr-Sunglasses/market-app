@@ -133,3 +133,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Secreat Keys
+market/SEACRETKEY.py 

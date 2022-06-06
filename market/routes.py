@@ -13,7 +13,6 @@ def homepage():
 @APP.route('/market')
 def marketpage():
     ITEMS = Item.query.all()
-    print(ITEMS)
     return render_template('market.html', items=ITEMS)
 
 
@@ -26,4 +25,4 @@ def login():
 @APP.route('/register')
 def register():
     form = RegistrationForm()
-    return render_template('register.html',form)
+    return render_template('register.html',forms=form)
