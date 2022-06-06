@@ -1,0 +1,13 @@
+
+# Database Commands for Sql_Alchemy
+
+ db.drop_all()  // to drop all Database Tables
+ db.create_all() // To create all new tables
+
+
+
+ # TO add Column to the Database aka CURD commands
+
+ db.session.add(field)
+
+ db.session.commit(field)
