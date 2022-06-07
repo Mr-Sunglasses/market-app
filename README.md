@@ -32,7 +32,7 @@ To generate an hash key from ipyhton
 
 ```bash
   
-  ipython3
+  ~/: ipython3
 
   [1]: import os
 
