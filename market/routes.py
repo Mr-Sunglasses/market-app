@@ -32,7 +32,7 @@ def register():
 
     if form.validate_on_submit():
 
-        user_to_create = Users(username = form.username, emailID = form.emailID, password_hash = form.password1)
+        user_to_create = Users(username = form.username.data, emailID = form.emailID.data, password_hash = form.password1.data)
 
         db.session.add(user_to_create)
         db.session.commit()
