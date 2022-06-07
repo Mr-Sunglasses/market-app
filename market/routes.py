@@ -20,7 +20,7 @@ def marketpage():
 
 
 # Placeholders
-@APP.route('/login')
+@APP.route('/login', methods=['GET', 'POST'])
 def login():
     return f"<h1>Login</h1>"
 
@@ -31,12 +31,12 @@ def register():
 
     if form.validate_on_submit():
         user_to_create = Users(username=form.username.data, emailID=form.emailID.data,
-                               password_hash=form.password1.data)
+                               password=form.password1.data)
 
         db.session.add(user_to_create)
         db.session.commit()
 
-        return redirect(url_for('marketpage'))
+        return redirect(url_for('login'))
 
     if form.errors != {}:  # This shows that If there is Errors in the form which is stored in the form of dictionary
         for error_all in form.errors.values():
