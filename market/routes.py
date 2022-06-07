@@ -1,7 +1,11 @@
-from flask import Flask, render_template
+from crypt import methods
+from flask import Flask, render_template, redirect, url_for
 from market import APP
-from market.model import Item
+from market import forms
+from market.model import Item,Users
 from market.forms import RegistrationForm
+from market import db
+
 
 
 @APP.route('/')
@@ -22,7 +26,18 @@ def login():
     return f"<h1>Login</h1>"
 
 
-@APP.route('/register')
+@APP.route('/register', methods= ['GET', 'POST'])
 def register():
     form = RegistrationForm()
+
+    if form.validate_on_submit():
+
+        user_to_create = Users(username = form.username, emailID = form.emailID, password_hash = form.password1)
+
+        db.session.add(user_to_create)
+        db.session.commit()
+
+        return redirect(url_for('marketpage'))
+    
+
     return render_template('register.html',forms=form)

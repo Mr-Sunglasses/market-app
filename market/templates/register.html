@@ -20,7 +20,10 @@
 
             <br>
 
-        <form method="post" name="post" class="form-register" style="color: white;">
+        <form method="POST" name="post" class="form-register" style="color: white;">
+
+            <!-- THIS LINE IS TO PROTECT FROM CSRF -->
+            {{ forms.hidden_tag() }} 
         
             {{ forms.username.label() }}
             {{ forms.username(class="form-control", placeholder="User Name") }}
