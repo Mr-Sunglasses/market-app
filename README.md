@@ -28,7 +28,7 @@ To run this project, you will need to add the following environment variables to
 
 `KEY_TO_ACCESS = 'generate a hash key'`
 
-To generate an hash key from ipyhton
+To generate a hash key from ipython
 
 ```bash
   
@@ -40,7 +40,7 @@ To generate an hash key from ipyhton
 
 ```
 
-Copy the generated hash key to `KEY_TO_ACCESS`
+Copy the generated hash key and paste it to `KEY_TO_ACCESS = 'generated hash key'`
 
 
 ## Contributing ❤️
