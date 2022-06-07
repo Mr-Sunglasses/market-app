@@ -1,10 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'basetemplate.html' %}
 
-</body>
-</html>
+{% block mainTitle %}
+    Login Page
+{% endblock%}
+
+{% block bodymain %}
+        <body class="text-center">
+
+
+
+    <div class="container">
+
+        <img class="mb-4" src="https://yt3.ggpht.com/ytc/AKedOLT0VVKk9ygwBeGsZy6BOtuKupISZrJjVjdLj4JPkA=s900-c-k-c0x00ffffff-no-rj" alt="KIET College" width="192" height="192">
+
+        <h1 class="h3 mb-3 font-weight-normal">
+                Login to Continue
+            </h1>
+
+            <br>
+
+        <form method="post" name="post" class="form-register" style="color: white;">
+
+            <!-- THIS LINE IS TO PROTECT FROM CSRF -->
+            {{ form1.hidden_tag() }}
+
+            {{ form1.username.label() }}
+            {{ form1.username(class="form-control", placeholder="User Name") }}
+
+
+            {{ form1.password1.label() }}
+            {{ form1.password1(class="form-control", placeholder="Password") }}
+
+            <br>
+            <p>Don't have an Account?</p>
+            <br>
+            <a class="btn btn-outline-secondary" href="{{ url_for('register') }}" role="button">Register Now</a>
+
+            <br>
+
+
+            <br>
+            {{ form1.submit(class="btn btn-lg btn-block btn-primary") }}
+
+
+        </form>
+
+
+    </div>
+    </body>
+{% endblock %}
