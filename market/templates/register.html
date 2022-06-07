@@ -13,7 +13,11 @@
     <div class="container">
 
         <img class="mb-4" src="https://yt3.ggpht.com/ytc/AKedOLT0VVKk9ygwBeGsZy6BOtuKupISZrJjVjdLj4JPkA=s900-c-k-c0x00ffffff-no-rj" alt="KIET College" width="192" height="192">
-            
+
+        <br>
+            <p>Have an Account?</p>
+            <a class="btn btn-outline-secondary" href="{{ url_for('login') }}" role="button">Login</a>
+            <hr>
         <h1 class="h3 mb-3 font-weight-normal">
                 Please Create your Account
             </h1>
@@ -39,6 +43,7 @@
 
             <br>
             {{ forms.submit(class="btn btn-lg btn-block btn-primary") }}
+
 
         
         </form>
