@@ -1,5 +1,5 @@
 from crypt import methods
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, flash
 from market import APP
 from market import forms
 from market.model import Item, Users
@@ -40,6 +40,6 @@ def register():
 
     if form.errors != {}:  # This shows that If there is Errors in the form which is stored in the form of dictionary
         for error_all in form.errors.values():
-            print(f"The Error is {error_all}")
+            flash(f"The Error is {error_all}", category='danger')
 
     return render_template('register.html', forms=form)
