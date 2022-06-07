@@ -7,11 +7,14 @@ from market.model import Users
 class RegistrationForm(FlaskForm):
 
     def validate_username(self, user_to_check):
-        user = Users.filter_by(username=user_to_check).first()
+        user = Users.query.filter_by(username=user_to_check.data).first()
         if user:
             raise ValidationError('User Name Already Exist Please Try with Different user name')
 
-    def git
+    def validate_emailID(self, email_to_check):
+        email = Users.query.filter_by(emailID=email_to_check.data).first()
+        if email:
+            raise ValidationError('User Email Already Exists Please Try with Different Email')
 
     username = StringField(label="Username", validators=[Length(min=4,max=40), DataRequired()])
     emailID = StringField(label="Email", validators=[Email(), DataRequired()])
