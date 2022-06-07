@@ -22,6 +22,27 @@ Install the project by using these following steps.
 
 ```
     
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`KEY_TO_ACCESS = 'generate a hash key'`
+
+To generate an hash key from ipyhton
+
+```bash
+  
+  ipython3
+
+  [1]: import os
+
+  [2]: print(os.urandom(12).hex())
+
+```
+
+Copy the generated hash key to `KEY_TO_ACCESS`
+
+
 ## Contributing ❤️
 
 Contributions are always welcome ❤️ !
@@ -30,8 +51,7 @@ See `contributing.md` for ways to get started.
 
 Please adhere to this project's `code of conduct`.
 
-Feel free to reach me 😊 [Kanishk Pachauri](mailto:krishna03012003@icloud.com)
-.
+Feel free to reach me 😊.
 
 ## Tech Stack
 
