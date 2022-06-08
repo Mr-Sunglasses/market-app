@@ -20,3 +20,10 @@ dd
  UNDERCLASSMEN.query.filter_by(Column_name="value")
 
   UNDERCLASSMEN.query.filter_by(Column_name="value").first()       // Print out magic Method representation here __repr__
+
+
+
+
+
+# Shortcuts
+ cmd + b = for looking inside a class
