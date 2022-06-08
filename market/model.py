@@ -19,6 +19,13 @@ class Users(db.Model, UserMixin):
     # Model That which Item is Associated to The User
 
     @property
+    def prettier_budget(self):
+        if len(str(self.budget)) >= 4:
+            return f'{str(self.budget)[:-3]},{str(self.budget)[-3:]}$'
+        else:
+            return f"{self.budget}$"
+
+    @property
     def password(self):
         return self.password
 
