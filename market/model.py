@@ -1,13 +1,21 @@
-from market import db
+from market import db, login_manager
 from market import bcrypt
+from flask_login import UserMixin
 
-class Users(db.Model):
+
+@login_manager.user_loader
+def load_user(user_id):
+    return Users.query.get(int(user_id))
+
+
+class Users(db.Model, UserMixin):
     id = db.Column(db.Integer(), primary_key=True)
     username = db.Column(db.String(length=20), nullable=False, unique=True)
     emailID = db.Column(db.String(length=250), nullable=False, unique=True)
     password_hash = db.Column(db.String(length=255), nullable=False)
     budget = db.Column(db.Integer(), nullable=False, default=1000)
     item = db.relationship('Item', backref='owned_user', lazy=True)  # This Defines the RelationShip with the Item
+
     # Model That which Item is Associated to The User
 
     @property
@@ -17,6 +25,9 @@ class Users(db.Model):
     @password.setter
     def password(self, plain_text_password):
         self.password_hash = bcrypt.generate_password_hash(plain_text_password).decode('utf-8')
+
+    def check_password_correction(self, attempted_password):
+        return bcrypt.check_password_hash(self.password_hash, attempted_password)
 
 
 class Item(db.Model):
@@ -29,4 +40,3 @@ class Item(db.Model):
 
     def __repr__(self) -> str:
         return f'Items {self.id} {self.name}'
-

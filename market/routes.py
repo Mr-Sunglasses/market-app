@@ -5,6 +5,7 @@ from market import forms
 from market.model import Item, Users
 from market.forms import RegistrationForm, LoginForm
 from market import db
+from flask_login import login_user
 
 
 @APP.route('/')
@@ -22,12 +23,18 @@ def marketpage():
 # Placeholders
 @APP.route('/login', methods=['GET', 'POST'])
 def login():
-
     form1 = LoginForm()
 
-    return render_template('login.html',form1=form1)
+    if form1.validate_on_submit():
+        attempted_user = Users.query.filter_by(username=form1.username.data).first()
+        if attempted_user and attempted_user.check_password_correction(attempted_password=form1.password1.data):
+            login_user(attempted_user)
+            flash(f"Welcome to KietMart {attempted_user.username}",category='success')
+            return redirect(url_for('marketpage'))
+        else:
+            flash(f"User Name and Password are not correct Please Try again",category='danger')
 
-
+    return render_template('login.html', form1=form1)
 
 
 @APP.route('/register', methods=['GET', 'POST'])
