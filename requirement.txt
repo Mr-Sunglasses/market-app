@@ -10,6 +10,7 @@ email-validator==1.2.1
 executing==0.8.3
 Flask==2.1.2
 Flask-Bcrypt==1.0.1
+Flask-Login==0.6.1
 Flask-SQLAlchemy==2.5.1
 Flask-WTF==1.0.1
 greenlet==1.1.2

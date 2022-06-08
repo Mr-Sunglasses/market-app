@@ -3,6 +3,7 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 from flask_bcrypt import Bcrypt
+from flask_login import login_manager
 load_dotenv()
 
 SECRET_KEY = os.getenv('KEY_TO_ACCESS')
