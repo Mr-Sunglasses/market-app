@@ -8,6 +8,7 @@ from market import db
 from flask_login import login_user
 from flask_restful import Resource
 
+
 @APP.route('/')
 @APP.route('/home')
 def homepage():
@@ -56,6 +57,7 @@ def register():
 
     return render_template('register.html', forms=form)
 
+
 # API section
 class API_TEST(Resource):
 
@@ -74,11 +76,12 @@ class Square(Resource):
     def get(self, num):
         return jsonify({'square': num ** 2})
 
+
 class FindUser(Resource):
 
     def get(self, username_given):
-        find_user = Users.query.filter_by(username= username_given).first()
+        find_user = Users.query.filter_by(username=username_given).first()
         if find_user:
-            return jsonify({'user': find_user.username+' is found in the Database'})
+            return jsonify({'user': find_user.username + ' is found in the Database'})
         else:
             return jsonify({'user': 'Not Found'})
