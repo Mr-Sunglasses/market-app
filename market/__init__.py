@@ -15,6 +15,8 @@ APP.config['SECRET_KEY'] = SECRET_KEY
 db = SQLAlchemy(APP)
 bcrypt = Bcrypt(APP)
 login_manager = LoginManager(APP)
+login_manager.login_view = "login"
+login_manager.login_message_category = "info"
 
 ## This is because routes are dependent on APP variable
 from market import routes
