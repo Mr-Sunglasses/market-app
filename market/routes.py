@@ -5,7 +5,7 @@ from market import forms
 from market.model import Item, Users
 from market.forms import RegistrationForm, LoginForm
 from market import db
-from flask_login import login_user
+from flask_login import login_user, logout_user
 
 
 @APP.route('/')
@@ -55,3 +55,9 @@ def register():
             flash(f"The Error is {error_all}", category='danger')
 
     return render_template('register.html', forms=form)
+
+@APP.route('/logout')
+def logout_page():
+    logout_user()
+    flash("You have been Successfully Logout", category='info')
+    return redirect(url_for('homepage'))
