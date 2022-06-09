@@ -52,14 +52,14 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{ url_for('homepage') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item">2
                     <a class="nav-link" href="{{ url_for('marketpage') }}">Market</a>
                 </li>
             </ul>
             {% if current_user.is_authenticated %}
                 <ul class="navbar-nav">
                     <a class="nav-item" style="color: lawngreen; font-weight: bold">
-                        <i class="fas fa-coins"></i>
+                        <i class="fas fa≠-coins"></i>
                         {{ current_user.prettier_budget }}
 
 
@@ -68,7 +68,7 @@
                     <a class="nav-link">Welcome, {{ current_user.username }} 👋</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="">Logout</a>
+                    <a class="nav-link" href="{{ url_for('logout_user') }}">Logout</a>
                 </li>
                 </ul>
             {% else %}
