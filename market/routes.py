@@ -48,8 +48,10 @@ def register():
 
         db.session.add(user_to_create)
         db.session.commit()
+        login_user(user_to_create)
+        flash(f"Account created Successfully! You are now Logged In!  {user_to_create.username}", category='success')
 
-        return redirect(url_for('login'))
+        return redirect(url_for('marketpage'))
 
     if form.errors != {}:  # This shows that If there is Errors in the form which is stored in the form of dictionary
         for error_all in form.errors.values():
