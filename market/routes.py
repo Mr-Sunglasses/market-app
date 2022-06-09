@@ -5,7 +5,7 @@ from market import forms
 from market.model import Item, Users
 from market.forms import RegistrationForm, LoginForm
 from market import db
-from flask_login import login_user, logout_user
+from flask_login import login_user, logout_user, login_required
 
 
 @APP.route('/')
@@ -15,6 +15,7 @@ def homepage():
 
 
 @APP.route('/market')
+@login_required
 def marketpage():
     ITEMS = Item.query.all()
     return render_template('market.html', items=ITEMS)
