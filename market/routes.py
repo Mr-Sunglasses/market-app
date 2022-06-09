@@ -1,12 +1,12 @@
 from crypt import methods
-from flask import Flask, render_template, redirect, url_for, flash
+from flask import Flask, render_template, redirect, url_for, flash, request, jsonify
 from market import APP
 from market import forms
 from market.model import Item, Users
 from market.forms import RegistrationForm, LoginForm
 from market import db
 from flask_login import login_user
-
+from flask_restful import Resource
 
 @APP.route('/')
 @APP.route('/home')
@@ -29,10 +29,10 @@ def login():
         attempted_user = Users.query.filter_by(username=form1.username.data).first()
         if attempted_user and attempted_user.check_password_correction(attempted_password=form1.password1.data):
             login_user(attempted_user)
-            flash(f"Welcome to KietMart {attempted_user.username}",category='success')
+            flash(f"Welcome to KietMart {attempted_user.username}", category='success')
             return redirect(url_for('marketpage'))
         else:
-            flash(f"User Name and Password are not correct Please Try again",category='danger')
+            flash(f"User Name and Password are not correct Please Try again", category='danger')
 
     return render_template('login.html', form1=form1)
 
@@ -55,3 +55,30 @@ def register():
             flash(f"The Error is {error_all}", category='danger')
 
     return render_template('register.html', forms=form)
+
+# API section
+class API_TEST(Resource):
+
+    def get(self):
+        return jsonify({'message': 'Hello World'})
+
+    # Corresponds to POST request
+    def post(self):
+        data = request.get_json()  # status code
+        return jsonify({'data': data}), 201
+
+
+# another resource to calculate the square of a number
+class Square(Resource):
+
+    def get(self, num):
+        return jsonify({'square': num ** 2})
+
+class FindUser(Resource):
+
+    def get(self, username_given):
+        find_user = Users.query.filter_by(username= username_given).first()
+        if find_user:
+            return jsonify({'user': find_user.username+' is found in the Database'})
+        else:
+            return jsonify({'user': 'Not Found'})

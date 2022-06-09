@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
+from flask_restful import Api
 load_dotenv()
 
 SECRET_KEY = os.getenv('KEY_TO_ACCESS')
@@ -11,6 +12,7 @@ SECRET_KEY = os.getenv('KEY_TO_ACCESS')
 APP = Flask(__name__)
 APP.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'
 APP.config['SECRET_KEY'] = SECRET_KEY
+api = Api(APP)
 
 db = SQLAlchemy(APP)
 bcrypt = Bcrypt(APP)
@@ -18,3 +20,4 @@ login_manager = LoginManager(APP)
 
 ## This is because routes are dependent on APP variable
 from market import routes
+
