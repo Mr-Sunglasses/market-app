@@ -31,6 +31,7 @@ class Users(db.Model, UserMixin):
     def password(self):
         return self.password
 
+    # Used to decode the password to Match to Login
     @password.setter
     def password(self, plain_text_password):
         self.password_hash = bcrypt.generate_password_hash(plain_text_password).decode('utf-8')
