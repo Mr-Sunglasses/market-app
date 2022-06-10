@@ -13,6 +13,7 @@ APP = Flask(__name__)
 APP.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'
 APP.config['SECRET_KEY'] = SECRET_KEY
 
+# Database Connection Stuff
 db = SQLAlchemy(APP)
 bcrypt = Bcrypt(APP)
 login_manager = LoginManager(APP)
