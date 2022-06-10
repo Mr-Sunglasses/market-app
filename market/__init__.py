@@ -4,6 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 from dotenv import load_dotenv
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
+
+# Used to Load .env file in the current workspace
 load_dotenv()
 
 # Generated Through .env file
