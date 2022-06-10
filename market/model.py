@@ -18,6 +18,7 @@ class Users(db.Model, UserMixin):
     item = db.relationship('Item', backref='owned_user', lazy=True)  # This Defines the RelationShip with the Item
     # Model That which Item is Associated to The User
 
+    # User to Prettify the budget and add a ',' like before - 1000 , After 1,000
     @property
     def prettier_budget(self):
         if len(str(self.budget)) >= 4:
