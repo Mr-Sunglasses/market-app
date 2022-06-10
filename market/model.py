@@ -48,5 +48,6 @@ class Item(db.Model):
     description = db.Column(db.String(length=2555), nullable=False, unique=True)
     owner = db.Column(db.Integer(), db.ForeignKey('users.id'))
 
+    # Used to Print the data when print() function Used in the Object Item
     def __repr__(self) -> str:
         return f'Items {self.id} {self.name}'
