@@ -26,6 +26,7 @@ class Users(db.Model, UserMixin):
         else:
             return f"{self.budget}$"
 
+    # Used to Hash the Password by Creating its Getter
     @property
     def password(self):
         return self.password
