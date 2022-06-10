@@ -8,6 +8,7 @@ from market import db
 from flask_login import login_user, logout_user, login_required
 
 
+# For HomePage
 @APP.route('/')
 @APP.route('/home')
 def homepage():
