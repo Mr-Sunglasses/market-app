@@ -16,7 +16,6 @@ class Users(db.Model, UserMixin):
     password_hash = db.Column(db.String(length=255), nullable=False)
     budget = db.Column(db.Integer(), nullable=False, default=1000)
     item = db.relationship('Item', backref='owned_user', lazy=True)  # This Defines the RelationShip with the Item
-
     # Model That which Item is Associated to The User
 
     @property
