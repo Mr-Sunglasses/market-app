@@ -6,6 +6,7 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 load_dotenv()
 
+# Generated Through .env file
 SECRET_KEY = os.getenv('KEY_TO_ACCESS')
 
 APP = Flask(__name__)
