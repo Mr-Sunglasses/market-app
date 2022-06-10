@@ -8,7 +8,7 @@ from flask_login import UserMixin
 def load_user(user_id):
     return Users.query.get(int(user_id))
 
-
+# Class For Database Model of Users
 class Users(db.Model, UserMixin):
     id = db.Column(db.Integer(), primary_key=True)
     username = db.Column(db.String(length=20), nullable=False, unique=True)
