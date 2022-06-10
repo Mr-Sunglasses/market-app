@@ -22,7 +22,6 @@ def marketpage():
     return render_template('market.html', items=ITEMS)
 
 
-# Placeholders
 @APP.route('/login', methods=['GET', 'POST'])
 def login():
     form1 = LoginForm()
