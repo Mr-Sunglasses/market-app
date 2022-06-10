@@ -22,7 +22,7 @@ class RegistrationForm(FlaskForm):
     confirm_password1 = PasswordField(label="Confirm password", validators=[EqualTo('password1'), DataRequired()])
     submit = SubmitField(label="Create Account")
 
-
+# Class For Login Form
 class LoginForm(FlaskForm):
     username = StringField(label="Username", validators=[DataRequired()])
     password1 = PasswordField(label="Password", validators=[DataRequired()])
