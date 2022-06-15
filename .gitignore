@@ -136,3 +136,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Test is under development
+/test
